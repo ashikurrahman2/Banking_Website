@@ -70,9 +70,51 @@
                 </div>
             </div>
         </div>
+
+   
+    
     </section>
     <!-- end of slider area -->
-    <section class="block-features">
+     
+        <style>
+            .apply-now-container {
+                display: flex;
+                justify-content: center;
+                margin-top: -40px; /* Slight overlap with slider */
+            }
+        
+            .apply-now-btn {
+                background: linear-gradient(to right, #6a11cb, #2575fc); /* Attractive gradient */
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                padding: 12px 30px;
+                border-radius: 50px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                text-transform: uppercase;
+                transition: all 0.3s ease-in-out;
+            }
+        
+            .apply-now-btn:hover {
+                background: linear-gradient(to right, #e97014, #4682ea);
+                /* Reverse gradient on hover */
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+                transform: scale(1.05);
+            }
+
+            /* About */
+            .about-thumb {
+        margin-top: 40px; 
+    }
+
+    .topimage .about-thumb {
+        margin-top: 50px;  
+    }
+
+  
+        </style>
+      
+    {{-- <section class="block-features">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4 col-xl-2 col-sm-6 nopadding">
@@ -143,9 +185,13 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- start third about area -->
     <section class="third-about-us section-padding">
+             <!-- Apply Now Button -->
+             <div class="apply-now-container">
+                <a href="{{ route('submit') }}" class="apply-now-btn" style="margin-top: 50px;">Apply Now</a>
+            </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center">
@@ -159,7 +205,7 @@
                 </div>
                 <div class="col-md-6 text-center">
                     <div class="single-third-about-us bottomimage">
-                        <h2>Our loan Advisor specialist</h2>
+                        <h2 style="margin-top: 40px;">Our loan Advisor specialist</h2>
                         <p>We understand that we аrе ореrаtіng in a dynamic environment аnd hаvе evolved our strategy tо maximize the opportunity іn аn іnсrеаѕіnglу digital global world. Wіth our full wоrldwіdе network, wе are еvоlvіng tо mееt thе changing nееdѕ оf millions of сuѕtоmеrѕ асrоѕѕ different borders.</p>
                         <div class="about-thumb">
                             <img src="{{ asset('/') }}frontend/asset/img/portfolio-2.jpg" alt="">

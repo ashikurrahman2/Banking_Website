@@ -7,7 +7,7 @@
         <link rel="icon" href="asset/img/favicon.png" type="image/gif">
         <meta name="description" content="Loanplus - Loan Company HTML Template, Credit Website Template.">
         <meta name="keywords" content="Home Loan Template, Bootstrap Template, Loan Product, Personal Loan">
-        <title>Loanplus - Loan Company HTML Template</title>
+        <title>MBC Finance | @yield('title')</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" type="text/css" href="{{asset('frontend/asset/css/bootstrap.min.css')}}">
         <link rel="stylesheet" type="text/css" href="asset/css/reset.css">
@@ -71,7 +71,7 @@
 
       <!-- Bottom Navigation -->
       <div class="bottom-nav">
-        <a href="#" class="nav-link active">
+        <a href="/" class="nav-link active">
             <i class="icon bi bi-house-door-fill"></i>
             <span>হোম</span>
         </a>

@@ -12,4 +12,8 @@ class FrontendController extends Controller
         return view('frontend.pages.home');
     }
 
+    public function submission(){
+        return view('frontend.pages.loan_item');
+    }
+
 }

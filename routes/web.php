@@ -12,5 +12,6 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(UserMiddleware::class);
 Route::get('/', [FrontendController:: class, 'index'])->name('index');
+Route::get('/apply', [FrontendController:: class, 'submission'])->name('submit');
 
 
