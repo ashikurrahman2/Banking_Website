@@ -7,6 +7,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4 col-xl-2 col-sm-6 nopadding">
+                    <a href="{{ route('loan.form', 'personal') }}">
                     <div class="single-block">
                         <div class="icon">
                             <img src="{{ asset('/') }}frontend/asset/img/icon-1.png" alt="">
@@ -17,7 +18,9 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-4 col-xl-2 col-sm-6 nopadding">
+                    <a href="{{ route('loan.form', 'car') }}">
                     <div class="single-block">
                         <div class="icon">
                             <img src="{{ asset('/') }}frontend/asset/img/car.png" alt="">
@@ -74,5 +77,6 @@
                 </div>
             </div>
         </div>
-    </section> 
+    </section>   
+
 @endsection

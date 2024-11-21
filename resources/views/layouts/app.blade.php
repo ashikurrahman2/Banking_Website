@@ -88,12 +88,19 @@
             <span>একাউন্ট</span>
         </a>
     </div>
-    
 
     <!-- footer start -->
     @include('frontend.layouts.footer')
     <!-- footer end -->
-    <!-- end of footer area -->
+
+    {{-- Form submit success message --}}
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+    <!-- All script -->
     <script src="{{asset('frontend/asset/js/jquery-3.3.1.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.0/jquery.easing.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
