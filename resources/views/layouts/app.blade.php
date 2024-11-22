@@ -113,8 +113,25 @@
         a {
             text-decoration: none !important;
         }
-    </style>
-    </head>
+
+/* User account */
+         .username {
+    display: inline-block;
+    max-width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle; */
+}
+/* Responsive user account */
+/* @media (max-width: 768px) {
+    .username {
+        max-width: 80px; 
+    }
+} 
+
+   </style>
+</head>
 <body class="js">
   
     <!-- header start -->
@@ -156,12 +173,24 @@
         <i class="icon bi bi-wallet-fill"></i>
         <span>উইড্রো</span>
     </a>
-    <a href="{{ Auth::check() ? '/home' : '/login' }}" class="nav-link">
-        <i class="icon bi bi-person-fill"></i>
-        <span>
-            {{ Auth::check() ? Auth::user()->name : 'একাউন্ট' }}
-        </span>
-    </a>
+    <div class="nav-link dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon bi bi-person-fill"></i>
+            <span class="username">{{ Auth::check() ? Auth::user()->name : 'একাউন্ট' }}</span>
+        </a>
+        <div class="dropdown-menu">
+            @if (Auth::check())
+            <!-- Logout Option -->
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="dropdown-item">লগআউট</button>
+            </form>
+            @else
+            <!-- Login link -->
+            <a href="/login" class="dropdown-item">লগইন</a>
+            @endif
+        </div>
+    </div> 
 </div>
 
 
