@@ -17,10 +17,10 @@
         {{-- For bottom nav --}}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-    <style>
+    {{-- <style>
         body {
             margin: 0;
-            padding-bottom: 70px; /* Space for navigation bar */
+            padding-bottom: 70px; 
             font-family: 'Noto Sans Bengali', sans-serif;
         }
 
@@ -59,6 +59,60 @@
         .nav-link.active {
             color: #007bff;
         }
+        a{
+            text-decoration: none !important;
+        }
+    </style> --}}
+
+    <style>
+        body {
+            margin: 0;
+            padding-bottom: 70px; /* Bottom navigation height */
+            font-family: 'Noto Sans Bengali', sans-serif;
+            overflow-x: hidden; /* Horizontal scrolling disabled */
+        }
+    
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #f8f9fa; /* Light background */
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between; /* Ensure even spacing between items */
+            padding: 10px 0;
+            box-sizing: border-box; /* Include padding in element width */
+        }
+    
+        .nav-link {
+            color: black;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            flex: 1; /* Equal space for each menu item */
+            max-width: 25%; /* Prevent overflow */
+            transition: color 0.3s ease-in-out;
+        }
+    
+        .nav-link .icon {
+            font-size: 20px; /* Adjusted for better fit */
+            margin-bottom: 3px; /* Slightly smaller gap */
+            display: block;
+        }
+    
+        .nav-link:hover {
+            color: #007bff; /* Hover color */
+        }
+    
+        .nav-link.active {
+            color: #007bff; /* Active state color */
+        }
+    
+        a {
+            text-decoration: none !important;
+        }
     </style>
     </head>
 <body class="js">
@@ -70,7 +124,7 @@
     @yield('content')
 
       <!-- Bottom Navigation -->
-      <div class="bottom-nav">
+      {{-- <div class="bottom-nav">
         <a href="/" class="nav-link active">
             <i class="icon bi bi-house-door-fill"></i>
             <span>হোম</span>
@@ -87,7 +141,29 @@
             <i class="icon bi bi-person-fill"></i>
             <span>একাউন্ট</span>
         </a>
-    </div>
+    </div> --}}
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+    <a href="/" class="nav-link active">
+        <i class="icon bi bi-house-door-fill"></i>
+        <span>হোম</span>
+    </a>
+    <a href="#" class="nav-link">
+        <i class="icon bi bi-clock-history"></i>
+        <span>হিস্টোরি</span>
+    </a>
+    <a href="#" class="nav-link">
+        <i class="icon bi bi-wallet-fill"></i>
+        <span>উইড্রো</span>
+    </a>
+    <a href="{{ Auth::check() ? '/home' : '/login' }}" class="nav-link">
+        <i class="icon bi bi-person-fill"></i>
+        <span>
+            {{ Auth::check() ? Auth::user()->name : 'একাউন্ট' }}
+        </span>
+    </a>
+</div>
+
 
     <!-- footer start -->
     @include('frontend.layouts.footer')
@@ -124,5 +200,6 @@
 	</script>
     {{-- Bottom nav --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>

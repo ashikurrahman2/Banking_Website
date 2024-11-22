@@ -19,7 +19,11 @@ Route::get('/apply', [FrontendController:: class, 'submission'])->name('submit')
 Route::get('/loan/{type}', [FrontendController::class, 'loanForm'])->name('loan.form');
 /*** Loan type form submission route ***/ 
 Route::post('/apply-loan', [FrontendController::class, 'applyLoan'])->name('loan.apply');
-
+// Logout Route
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login')->with('status', 'You have been logged out.');
+})->name('logout');
 
 
 
