@@ -121,10 +121,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    vertical-align: middle; */
+    vertical-align: middle; 
 }
 /* Responsive user account */
-/* @media (max-width: 768px) {
+ @media (max-width: 768px) {
     .username {
         max-width: 80px; 
     }
@@ -138,7 +138,9 @@
     @include('frontend.layouts.header')
     <!-- header end -->
 
-    @yield('content')
+    <div style="padding-top: 4rem">
+        @yield('content')
+    </div>
 
       <!-- Bottom Navigation -->
       {{-- <div class="bottom-nav">
@@ -186,8 +188,9 @@
                 <button type="submit" class="dropdown-item">লগআউট</button>
             </form>
             @else
-            <!-- Login link -->
+            <!-- Login Register link -->
             <a href="/login" class="dropdown-item">লগইন</a>
+            <a href="/register" class="dropdown-item">রেজিস্টার</a>
             @endif
         </div>
     </div> 

@@ -34,7 +34,7 @@
         <div class="navbar-content">
             <ul class="pc-navbar">
                 <li class="pc-item pc-caption"><label>Admin Panel</label></li>
-                <li class="pc-item pc-hasmenu"><a href="#!" class="pc-link">
+                <li class="pc-item pc-hasmenu"><a href="{{ route('admin.home') }}" class="pc-link">
                         <span class="pc-micon"><i class="ph-duotone ph-gauge"></i> </span>
                         <span class="pc-mtext">Dashboard</span>
                         <span class="pc-arrow"></span></a>
@@ -47,17 +47,17 @@
                         </a>
                         <ul class="pc-submenu">
                              <li class="pc-item">
-                                <a class="pc-link" href="{{route('statement.index')}}">Bank Statement</a>
+                                <a class="pc-link" href="{{route('admin.statement.index')}}">Bank Statement</a>
                              </li>
                         </ul>
                         <ul class="pc-submenu">
                             <li class="pc-item">
-                               <a class="pc-link" href="{{route('loan.index')}}">Bank Loan</a>
+                               <a class="pc-link" href="{{route('admin.loan.index')}}">Bank Loan</a>
                             </li>
                        </ul>
                        <ul class="pc-submenu">
                         <li class="pc-item">
-                           <a class="pc-link" href="{{route('slider.index')}}">Web Slider</a>
+                           <a class="pc-link" href="{{route('admin.slider.index')}}">Web Slider</a>
                         </li>
                    </ul>
                 </li>
@@ -70,16 +70,16 @@
                     </a>
                     <ul class="pc-submenu">
                         <li class="pc-item"><a class="pc-link"
-                            href="{{route('seo.index')}}">SEO Settings</a>
+                            href="{{route('admin.seo.index')}}">SEO Settings</a>
                         </li>
                         <li class="pc-item"><a class="pc-link"
-                            href="{{route('website.index')}}">Website Settings</a>
+                            href="{{route('admin.website.index')}}">Website Settings</a>
                         </li>
                         <li class="pc-item"><a class="pc-link"
-                            href="{{route('page.index')}}">Page Management</a>
+                            href="{{route('admin.page.index')}}">Page Management</a>
                         </li>
                         <li class="pc-item"><a class="pc-link"
-                            href="{{route('smtp.index')}}">SMTP Settings</a>
+                            href="{{route('admin.smtp.index')}}">SMTP Settings</a>
                         </li>
                     </ul>
                 </li>

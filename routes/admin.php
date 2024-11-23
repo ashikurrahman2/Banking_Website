@@ -24,7 +24,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 /*** Website page route ***/
-Route::middleware(['auth', IsAdmin::class])->group(function() {
+Route::prefix('admin')->name('admin.')->middleware(['auth', IsAdmin::class])->group(function() {
     // Route::resource('abouts', AboutController::class)->except(['show', 'create']);
     Route::resource('statement', StatementController::class);
     Route::resource('loan', LoanController::class);
