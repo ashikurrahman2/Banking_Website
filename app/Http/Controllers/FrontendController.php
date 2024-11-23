@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LoanApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,37 +55,33 @@ public function applyLoan(Request $request)
         'loan_type' => 'required',
         'F_name' => 'required|string|max:255',
         'M_name' => 'required|string|max:255',
-        'spouse_name' => 'required|string|max:255',
-        'd_birth' => 'required|string|max:255',
+        'spouse_name' => 'nullable|string|max:255',
+        'd_birth' => 'required|date',
         'gender' => 'required|string|max:255',
-        'pass_num' => 'required|numeric|max:255',
+        'pass_num' => 'required|string|max:255',
         'country' => 'required|string|max:255',
-        'phone' => 'required|numeric|max:255',
-        'social_phone' => 'required|numeric|max:255',
+        'phone' => 'required|string|max:255',
+        'social_phone' => 'nullable|string|max:255',
         'permanent_address' => 'required|string|max:255',
         'dittrict' => 'required|string|max:255',
         'police_station' => 'required|string|max:255',
-        'email' => 'required|string|max:255',
-        'account_no' => 'required|numeric|max:255',
+        'email' => 'required|email|max:255',
+        'account_no' => 'required|string|max:255',
         'branch' => 'required|string|max:255',
         'account_holder' => 'required|string|max:255',
         'loan_amount' => 'required|numeric|min:1000',
-        'repayment_period' => 'required|string|min:1000',
-        'guarantor_name' => 'required|string|min:1000',
-        'guarantor_father_name' => 'required|string|min:1000',
-        'guarantor_mother_name' => 'required|string|min:1000',
-        'guarantor_nid' => 'required|numeric|min:1000',
-        'guarantor_thana' => 'required|string|min:1000',
-        'guarantor_zilla' => 'required|string|min:1000',
+        'repayment_period' => 'required|string',
+        'guarantor_name' => 'required|string|max:255',
+        'guarantor_father_name' => 'required|string|max:255',
+        'guarantor_mother_name' => 'required|string|max:255',
+        'guarantor_nid' => 'required|string|max:255',
+        'guarantor_thana' => 'required|string|max:255',
+        'guarantor_zilla' => 'required|string|max:255',
     ]);
 
-    // Log the validated data (for debugging or audit)
-    \Log::info('Loan application submitted:', $validated);
+    LoanApplication::create($validated);
 
-    // Process data and submission (e.g., save to database)
-    // LoanApplication::create($validated);
-
-    return back()->with('success', 'Your loan application has been submitted!');
+    return back()->with('success', 'Your loan application has been submitted and is pending approval!');
 }
 
 

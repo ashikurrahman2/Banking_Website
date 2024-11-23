@@ -40,7 +40,7 @@ class StatementController extends Controller
                         <button class="btn btn-danger btn-sm delete" data-id="' . $row->id . '">
                             <i class="fa fa-trash"></i>
                         </button>
-                        <form id="delete-form-' . $row->id . '" action="' . route('statement.destroy', $row->id) . '" method="POST" style="display: none;">
+                        <form id="delete-form-' . $row->id . '" action="' . route('admin.statement.destroy', $row->id) . '" method="POST" style="display: none;">
                             ' . csrf_field() . '
                             ' . method_field('DELETE') . '
                         </form>';

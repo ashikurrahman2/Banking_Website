@@ -52,7 +52,7 @@
                         </ul>
                         <ul class="pc-submenu">
                             <li class="pc-item">
-                               <a class="pc-link" href="{{route('admin.loan.index')}}">Bank Loan</a>
+                               <a class="pc-link" href="{{ route('admin.loan.index') }}">Bank Loan</a>
                             </li>
                        </ul>
                        <ul class="pc-submenu">

@@ -1,6 +1,6 @@
 <!-- resources/views/admin/bank/slider/edit.blade.php -->
 
-<form action="{{ route('slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
   @csrf
   @method('PUT')
   <div class="col-md-12">

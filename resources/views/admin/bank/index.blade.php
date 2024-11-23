@@ -70,7 +70,7 @@
                 <h5 class="modal-title h4" id="myLargeModalLabel">Add New Statement</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('statement.store') }}" method="post" id="add-form" enctype="multipart/form-data">
+            <form action="{{ route('admin.statement.store') }}" method="post" id="add-form" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
@@ -117,7 +117,7 @@
         var table = $('.ytable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('statement.index') }}",
+            ajax: "{{ route('admin.statement.index') }}",
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex' },
                 { data: 'document_name', name: 'document_name' },
