@@ -65,8 +65,17 @@ public function applyLoan(Request $request)
         'dittrict' => 'required|string|max:255',
         'police_station' => 'required|string|max:255',
         'email' => 'required|string|max:255',
-        'amount' => 'required|numeric|min:1000',
-        // 'email' => 'required|email',
+        'account_no' => 'required|numeric|max:255',
+        'branch' => 'required|string|max:255',
+        'account_holder' => 'required|string|max:255',
+        'loan_amount' => 'required|numeric|min:1000',
+        'repayment_period' => 'required|string|min:1000',
+        'guarantor_name' => 'required|string|min:1000',
+        'guarantor_father_name' => 'required|string|min:1000',
+        'guarantor_mother_name' => 'required|string|min:1000',
+        'guarantor_nid' => 'required|numeric|min:1000',
+        'guarantor_thana' => 'required|string|min:1000',
+        'guarantor_zilla' => 'required|string|min:1000',
     ]);
 
     // Log the validated data (for debugging or audit)

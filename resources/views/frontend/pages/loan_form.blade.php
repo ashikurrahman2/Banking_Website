@@ -138,7 +138,7 @@
 
     <div class="form-group">
         <label for="guarantor_nid">NID No (এনআইডি নম্বর):</label>
-        <input type="text" id="guarantor_nid" name="guarantor_nid" class="form-control" required>
+        <input type="number" id="guarantor_nid" name="guarantor_nid" class="form-control" required>
     </div>
 
     <div class="form-group">
