@@ -52,9 +52,21 @@ public function applyLoan(Request $request)
 {
     $validated = $request->validate([
         'loan_type' => 'required',
-        'name' => 'required|string|max:255',
+        'F_name' => 'required|string|max:255',
+        'M_name' => 'required|string|max:255',
+        'spouse_name' => 'required|string|max:255',
+        'd_birth' => 'required|string|max:255',
+        'gender' => 'required|string|max:255',
+        'pass_num' => 'required|numeric|max:255',
+        'country' => 'required|string|max:255',
+        'phone' => 'required|numeric|max:255',
+        'social_phone' => 'required|numeric|max:255',
+        'permanent_address' => 'required|string|max:255',
+        'dittrict' => 'required|string|max:255',
+        'police_station' => 'required|string|max:255',
+        'email' => 'required|string|max:255',
         'amount' => 'required|numeric|min:1000',
-        'email' => 'required|email',
+        // 'email' => 'required|email',
     ]);
 
     // Log the validated data (for debugging or audit)

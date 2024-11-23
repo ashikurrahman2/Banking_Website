@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-8 col-lg-8 text-right col-xl-5">
                 <div class="bg-black px-3 py-1 rounded-pill text-white position-absolute" style="width: auto; top:3px; right:60px;">
-                    $1234
+                    $1200
                 </div>
                 <div id="cssmenu">
                     <ul>
@@ -41,6 +41,21 @@
                         </li>
                     
                         <li><a href="contact.html">Contact us</a></li>
+                        <li><a href="/register">Register</a></li>
+                        <li>
+                            @if(Auth::check())
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                </form>
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                            @else
+                                <a href="{{ route('login') }}">Login</a>
+                            @endif
+                        </li>
+                        
+                        
                     </ul>
                 </div>
             </div>
@@ -63,7 +78,7 @@
                 </div>
                 <div class="menu-info-wrapper">
                     <div class="menu-info thir-btn">
-                        <a href="#" class="btn btn-primary">Login</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
                     </div>
                 </div>
                 
