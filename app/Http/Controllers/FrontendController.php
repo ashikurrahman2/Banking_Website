@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LoanApplication;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +14,8 @@ class FrontendController extends Controller
     // View main page 
     public function index()
     {
-        return view('frontend.pages.home');
+        $sliders= Slider::all();
+        return view('frontend.pages.home', compact('sliders'));
     }
     // View loan item part
     public function submission(){

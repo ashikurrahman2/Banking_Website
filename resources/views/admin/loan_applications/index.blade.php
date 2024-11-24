@@ -12,9 +12,9 @@
                             <h5 class="mb-0">Loan Applications</h5>
                         </div>
                     </div>
-                    <div class="col-sm-auto">
+                    {{-- <div class="col-sm-auto">
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loanTypeModal">+ Add New Loan Type</button>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>All Loan Applications</h5>
+                        <h5>All Loan Application List</h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

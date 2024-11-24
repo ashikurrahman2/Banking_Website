@@ -167,19 +167,19 @@
 <div class="bottom-nav">
     <a href="/" class="nav-link active">
         <i class="icon bi bi-house-door-fill"></i>
-        <span>হোম</span>
+        <span>Home</span>
     </a>
     <a href="#" class="nav-link">
         <i class="icon bi bi-clock-history"></i>
-        <span>হিস্টোরি</span>
+        <span>History</span>
     </a>
     <a href="#" class="nav-link">
         <i class="icon bi bi-wallet-fill"></i>
-        <span>উইড্রো</span>
+        <span>Withdraw</span>
     </a>
         <a href="#" class="nav-link">
             <i class="icon bi bi-person-fill"></i>
-            <span class="username">{{ Auth::check() ? Auth::user()->name : 'একাউন্ট' }}</span>
+            <span class="username">{{ Auth::check() ? Auth::user()->name : 'Account' }}</span>
         </a>
 </div>
 

@@ -30,7 +30,7 @@
                         <h5 class="mb-0">Website Setting</h5>
                     </div>
                     <div class="card-body">
-                        <form role="form" action="{{ route('website.update', $website->id) }}" method="post" enctype="multipart/form-data">
+                        <form role="form" action="{{ route('admin.website.update', $website->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             

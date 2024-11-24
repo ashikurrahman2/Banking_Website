@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-sm-auto">
                         <ul class="breadcrumb">
-                            <a href="{{ route('page.create') }}" class="btn btn-primary" >+ Add New</a>
+                            <a href="{{ route('admin.page.create') }}" class="btn btn-primary" >+ Add New</a>
                         </ul>
                     </div>
                 </div>

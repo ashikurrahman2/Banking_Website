@@ -30,7 +30,7 @@
                         <h5 class="mb-0">Your SEO Setting</h5>
                     </div>
                     <div class="card-body">
-                        <form role="form" action="{{ route('seo.update', $data->id) }}" method="post">
+                        <form role="form" action="{{ route('admin.seo.update', $data->id) }}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="row">

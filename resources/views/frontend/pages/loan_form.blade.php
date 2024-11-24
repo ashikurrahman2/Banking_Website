@@ -47,11 +47,6 @@
             </div>
 
             <div class="form-group">
-                <label for="country">Country (দেশ):</label>
-                <input type="text" id="country" name="country" class="form-control" required>
-            </div>
-
-            <div class="form-group">
                 <label for="phone">Mobile No (মোবাইল নম্বর):</label>
                 <input type="number" id="phone" name="phone" class="form-control" required>
             </div>
@@ -81,14 +76,10 @@
                 <input type="email" id="email" name="email" class="form-control" required>
             </div>
 
-            {{-- <div class="form-group">
-                <label for="amount">Loan Amount</label>
-                <input type="number" id="amount" name="amount" class="form-control" required>
-            </div> --}}
 
-                <!-- Adding some gap before Bank Details -->
+      <!-- Adding some gap before Bank Details -->
     <div class="form-group mt-4">
-        <h5>Bank Details ..........</h5>
+        <h5>Bank Details</h5>
     </div>
 
     <div class="form-group">
@@ -118,7 +109,7 @@
 
        <!-- Loan Guarantor Details Section -->
        <div class="form-group mt-4">
-        <h5>Loan Guarantor Details ........</h5>
+        <h5>Loan Guarantor Details</h5>
     </div>
 
     <div class="form-group">

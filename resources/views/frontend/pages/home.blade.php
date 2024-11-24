@@ -5,20 +5,24 @@
 @section('content')
     <!-- start slider area -->
     <section class="main-slider-area">
+        @foreach ($sliders as $slider)
         <div class="active-main-slider owl-carousel">
-            <div class="main-slider-item" style="background-image: url({{ asset('/') }}frontend/asset/img/slider-2.jpg);">
+            {{-- <div class="main-slider-item" style="background-image: url({{ asset('/') }}frontend/asset/img/slider-2.jpg);"> --}}
+            <div class="main-slider-item" style="background-image: url({{ asset($slider->slide_image) }});">
                 <div class="slider-one-content">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 text-left">
                                 <div class="main-slider-welcome-text slidertwo sliderthree">
                                     <div class="slider-cell">
-                                        <h2 class="sub-title" data-animation-in="fadeInRight" data-animation-out="animate-out fadeOutRIght">Leading bank loan provider in the market</h2>
+                                        {{-- <h2 class="sub-title" data-animation-in="fadeInRight" data-animation-out="animate-out fadeOutRIght">Leading bank loan provider in the market</h2>
                                         <h2 class="main-title" data-animation-in="fadeInLeft" data-animation-out="animate-out fadeOutLeft">Are you looking for business
-                                        <br>enhancement loan?</h2>
+                                        <br>enhancement loan?</h2> --}}
+                                        <h2 class="sub-title" data-animation-in="fadeInRight" data-animation-out="animate-out fadeOutRight">{{ $slider->slide_subtitle }}</h2>
+                                        <h2 class="main-title" data-animation-in="fadeInLeft" data-animation-out="animate-out fadeOutLeft">{{ $slider->slide_title }}</h2>
                                         <div class="welcome-button" data-animation-in="fadeInDown" data-animation-out="animate-out fadeOutDown">
-                                            <a href="#" class="btn btn-default button-primary">Apply Loan</a>
-                                            <a href="#" class="button-secondary btn btn-default">Contact Us</a>
+                                            {{-- <a href="#" class="btn btn-default button-primary">Apply Loan</a>
+                                            <a href="#" class="button-secondary btn btn-default">Contact Us</a> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -27,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="main-slider-item" style="background-image: url({{ asset('/') }}frontend/asset/img/slider-1.jpg);">
+            {{-- <div class="main-slider-item" style="background-image: url({{ asset('/') }}frontend/asset/img/slider-1.jpg);">
                 <div class="slider-one-content">
                     <div class="container">
                         <div class="row">
@@ -48,8 +52,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="main-slider-item" style="background-image: url({{ asset('/') }}frontend/asset/img/slider-2.jpg);">
+            </div> --}}
+            {{-- <div class="main-slider-item" style="background-image: url({{ asset('/') }}frontend/asset/img/slider-2.jpg);">
                 <div class="slider-one-content">
                     <div class="container">
                         <div class="row">
@@ -59,8 +63,8 @@
                                         <h2 class="sub-title" data-animation-in="fadeInRight" data-animation-out="animate-out fadeOutRight">Leading bank loan provider in the market</h2>
                                         <h2 class="main-title" data-animation-in="fadeInRight" data-animation-out="animate-out fadeOutRight">Lowest Interest Rate <br> on Home Loan</h2>
                                         <div class="welcome-button" data-animation-in="fadeInRight" data-animation-out="animate-out fadeOutRight">
-                                            <a href="#" class="btn btn-default button-primary"><span></span>  App STORE</a>
-                                            <a href="#" class="button-secondary btn btn-default"><span></span>  PLAY STORE</a>
+                                             <a href="#" class="btn btn-default button-primary"><span></span>  App STORE</a>
+                                            <a href="#" class="button-secondary btn btn-default"><span></span>  PLAY STORE</a> 
                                         </div>
                                     </div>
                                 </div>
@@ -68,8 +72,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
+        @endforeach
 
    
     

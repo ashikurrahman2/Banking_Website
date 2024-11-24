@@ -22,6 +22,7 @@ class User extends Authenticatable
         'password',
         'is_admin',
         'phone',
+        'customer_balance',
     ];
 
     /**
