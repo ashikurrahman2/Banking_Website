@@ -20,6 +20,7 @@ class AdminLoanController extends Controller
       }
 
     $user = User::find($application->user_id);
+    // dd($user);
     if ($user) {
         $user->customer_balance += $application->loan_amount;
         $user->save();

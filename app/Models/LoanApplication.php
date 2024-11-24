@@ -15,7 +15,7 @@ class LoanApplication extends Model
         'dittrict', 'police_station', 'email', 'account_no', 'branch',
         'account_holder', 'loan_amount', 'repayment_period', 'guarantor_name',
         'guarantor_father_name', 'guarantor_mother_name', 'guarantor_nid',
-        'guarantor_thana', 'guarantor_zilla', 'status',
+        'guarantor_thana', 'guarantor_zilla', 'status','user_id',
     ];
 
   

@@ -9,9 +9,11 @@
                 </div>
             </div>
             <div class="col-md-8 col-lg-8 text-right col-xl-5">
-                <div class="bg-black px-3 py-1 rounded-pill text-white position-absolute" style="width: auto; top:3px; right:60px;">
-                    ৳1200
-                </div>
+                @auth
+                    <div class="bg-black px-3 py-1 rounded-pill text-white position-absolute" style="width: auto; top:3px; right:60px;">
+                        ৳{{ round(auth()->user()->customer_balance, 2) }}
+                    </div>
+                @endauth
                 <div id="cssmenu">
                     <ul>++
                         <li>

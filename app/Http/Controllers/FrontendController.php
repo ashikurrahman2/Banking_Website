@@ -81,7 +81,7 @@ public function applyLoan(Request $request)
         'guarantor_zilla' => 'required|string|max:255',
     ]);
 
-    LoanApplication::create($validated);
+    LoanApplication::create(array_merge($validated, ['user_id' => Auth::user()->id]));
 
     return back()->with('success', 'Your loan application has been submitted and is pending approval!');
 }
