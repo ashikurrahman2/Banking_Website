@@ -31,6 +31,22 @@ Route::post('/logout', function () {
 })->name('logout');
 
 
+/*** Withdraw form route ***/ 
+Route::get('/withdraw', [FrontendController::class, 'withdrawForm'])
+    ->middleware('auth')
+    ->name('withdraw.form');
+
+/*** Withdraw form submission route ***/ 
+Route::post('/withdraw-submit', [FrontendController::class, 'withdrawSubmit'])
+    ->middleware('auth')
+    ->name('withdraw.submit');
+
+
+    Route::get('/withdraw-success', function () {
+        return view('frontend.pages.withdraw_success');
+    })->name('withdraw.success');
+
+
 
 
 

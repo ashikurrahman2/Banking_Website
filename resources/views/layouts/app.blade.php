@@ -173,7 +173,7 @@
         <i class="icon bi bi-clock-history"></i>
         <span>History</span>
     </a>
-    <a href="#" class="nav-link">
+    <a href="{{ route('withdraw.form') }}" class="nav-link">
         <i class="icon bi bi-wallet-fill"></i>
         <span>Withdraw</span>
     </a>

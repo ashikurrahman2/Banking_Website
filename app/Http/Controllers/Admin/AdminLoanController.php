@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\LoanApplication;
 use App\Models\User;
-use App\Models\LoanType; // LoanType মডেল যোগ করা
+use App\Models\LoanType; 
 use Illuminate\Http\Request;
 
 class AdminLoanController extends Controller

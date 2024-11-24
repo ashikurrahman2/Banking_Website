@@ -84,7 +84,25 @@ public function applyLoan(Request $request)
     LoanApplication::create(array_merge($validated, ['user_id' => Auth::user()->id]));
 
     return back()->with('success', 'Your loan application has been submitted and is pending approval!');
-}
+   }
 
+   public function withdrawForm()
+   {
+       return view('frontend.pages.withdraw');
+   }
+   
+   public function withdrawSubmit(Request $request)
+   {
+       $request->validate([
+           'withdraw_via' => 'required|in:bkash,nagad,rocket,bank', 
+           'account_number' => 'required|string|max:255',
+           'account_name' => 'required|string|max:255',
+           'amount' => 'required|numeric|min:1',
+           'branch' => $request->withdraw_via === 'bank' ? 'required|string|max:255' : 'nullable',
+       ]);
+   
+       // Success message redirect
+       return redirect()->route('withdraw.success')->with('success', 'Withdrawal requests are not permitted at this stage');
+   }
 
 }
