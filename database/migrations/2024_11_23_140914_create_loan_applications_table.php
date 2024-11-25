@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('social_phone')->nullable();
             $table->string('permanent_address');
-            $table->string('dittrict');
+            $table->string('district');
             $table->string('police_station');
             $table->string('email');
             $table->string('account_no');
@@ -32,6 +32,8 @@ return new class extends Migration
             $table->string('account_holder');
             $table->decimal('loan_amount', 10, 2);
             $table->string('repayment_period');
+            $table->string('photo')->nullable();
+            $table->string('signature')->nullable();
             $table->string('guarantor_name');
             $table->string('guarantor_father_name');
             $table->string('guarantor_mother_name');

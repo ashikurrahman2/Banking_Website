@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\LoanApplication;
 use App\Models\Slider;
+// use App\Models\setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
 {
@@ -14,8 +16,9 @@ class FrontendController extends Controller
     // View main page 
     public function index()
     {
+        // $settings= setting::all();
         $sliders= Slider::all();
-        return view('frontend.pages.home', compact('sliders'));
+        return view('frontend.pages.home', compact('sliders','settings'));
     }
     // View loan item part
     public function submission(){
@@ -51,8 +54,46 @@ class FrontendController extends Controller
  }
  
 // Form submission request
+// public function applyLoan(Request $request)
+// {
+//     $validated = $request->validate([
+//         'loan_type' => 'required',
+//         'F_name' => 'required|string|max:255',
+//         'M_name' => 'required|string|max:255',
+//         'spouse_name' => 'nullable|string|max:255',
+//         'd_birth' => 'required|date',
+//         'gender' => 'required|string|max:255',
+//         'pass_num' => 'required|string|max:255',
+//         'country' => 'required|string|max:255',
+//         'phone' => 'required|string|max:255',
+//         'social_phone' => 'nullable|string|max:255',
+//         'permanent_address' => 'required|string|max:255',
+//         'district' => 'required|string|max:255',
+//         'police_station' => 'required|string|max:255',
+//         'email' => 'required|email|max:255',
+//         'account_no' => 'required|string|max:255',
+//         'branch' => 'required|string|max:255',
+//         'account_holder' => 'required|string|max:255',
+//         'loan_amount' => 'required|numeric|min:1000',
+//         'repayment_period' => 'required|string',
+//         'photo' => 'required|image|max:2048',
+//         'signature' => 'required|image|max:2048',
+//         'guarantor_name' => 'required|string|max:255',
+//         'guarantor_father_name' => 'required|string|max:255',
+//         'guarantor_mother_name' => 'required|string|max:255',
+//         'guarantor_nid' => 'required|string|max:255',
+//         'guarantor_thana' => 'required|string|max:255',
+//         'guarantor_zilla' => 'required|string|max:255',
+//     ]);
+
+//     LoanApplication::create(array_merge($validated, ['user_id' => Auth::user()->id]));
+
+//     return back()->with('success', 'Your loan application has been submitted and is pending approval!');
+//    }
+
 public function applyLoan(Request $request)
 {
+    // Validate the request data
     $validated = $request->validate([
         'loan_type' => 'required',
         'F_name' => 'required|string|max:255',
@@ -65,7 +106,7 @@ public function applyLoan(Request $request)
         'phone' => 'required|string|max:255',
         'social_phone' => 'nullable|string|max:255',
         'permanent_address' => 'required|string|max:255',
-        'dittrict' => 'required|string|max:255',
+        'district' => 'required|string|max:255',
         'police_station' => 'required|string|max:255',
         'email' => 'required|email|max:255',
         'account_no' => 'required|string|max:255',
@@ -73,6 +114,8 @@ public function applyLoan(Request $request)
         'account_holder' => 'required|string|max:255',
         'loan_amount' => 'required|numeric|min:1000',
         'repayment_period' => 'required|string',
+        'photo' => 'required|image|max:2048',
+        'signature' => 'required|image|max:2048',
         'guarantor_name' => 'required|string|max:255',
         'guarantor_father_name' => 'required|string|max:255',
         'guarantor_mother_name' => 'required|string|max:255',
@@ -81,10 +124,33 @@ public function applyLoan(Request $request)
         'guarantor_zilla' => 'required|string|max:255',
     ]);
 
-    LoanApplication::create(array_merge($validated, ['user_id' => Auth::user()->id]));
 
+    // Handle the file uploads
+    if ($request->hasFile('photo')) {
+        $photoPath = $request->file('photo')->store('photos', 'public');
+    }
+
+    if ($request->hasFile('signature')) {
+        $signaturePath = $request->file('signature')->store('signatures', 'public');
+    }
+
+
+    // Create the loan application and save to the database
+    LoanApplication::create(array_merge($validated, [
+        'user_id' => auth()->user()->id,
+        'photo' => $photoPath ?? null,
+        'signature' => $signaturePath ?? null,
+    ]));
+
+    // $loan_app = new LoanApplication();
+    // $loan_app->user_id = auth()->user()->id;
+    // $loan_app->full_name = $request->f_name ." " . $request->f_name;
+    // $loan_app->save();
+
+    // Redirect back with a success message
     return back()->with('success', 'Your loan application has been submitted and is pending approval!');
-   }
+}
+
 
    public function withdrawForm()
    {
