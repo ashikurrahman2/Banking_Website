@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LoanApplication;
+use App\Models\User;
 use App\Models\Slider;
 // use App\Models\setting;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class FrontendController extends Controller
     {
         // $settings= setting::all();
         $sliders= Slider::all();
-        return view('frontend.pages.home', compact('sliders','settings'));
+        return view('frontend.pages.home', compact('sliders'));
     }
     // View loan item part
     public function submission(){
@@ -169,6 +170,13 @@ public function applyLoan(Request $request)
    
        // Success message redirect
        return redirect()->route('withdraw.success')->with('success', 'Withdrawal requests are not permitted at this stage');
+   }
+
+   public function history(){
+    $user = Auth::user(); 
+    $loans = LoanApplication::where('user_id', $user->id)->get(); 
+    return view('frontend.pages.loan_history', compact('user', 'loans')); // সঠিক ভিউ পাথ
+
    }
 
 }

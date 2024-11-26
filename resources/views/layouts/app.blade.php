@@ -7,6 +7,7 @@
         {{-- @foreach ($settings as $setting)
         <link rel="icon" href="{{ $setting->favicon }}" type="image/gif">  
         @endforeach --}}
+        <link rel="icon" href="asset/favicon.png" type="image/gif"> 
         <meta name="description" content="Loanplus - Loan Company HTML Template, Credit Website Template.">
         <meta name="keywords" content="Home Loan Template, Bootstrap Template, Loan Product, Personal Loan">
         <title>MBC Finance | @yield('title')</title>
@@ -171,10 +172,11 @@
         <i class="icon bi bi-house-door-fill"></i>
         <span>Home</span>
     </a>
-    <a href="#" class="nav-link">
+    <a href="{{ route('loan.history') }}" class="nav-link">
         <i class="icon bi bi-clock-history"></i>
         <span>History</span>
     </a>
+    
     <a href="{{ route('withdraw.form') }}" class="nav-link">
         <i class="icon bi bi-wallet-fill"></i>
         <span>Withdraw</span>

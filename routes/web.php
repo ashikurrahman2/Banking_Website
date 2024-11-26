@@ -29,7 +29,8 @@ Route::post('/logout', function () {
     Auth::logout();
     return redirect('/')->with('status', 'You have been logged out.');
 })->name('logout');
-
+//  Loan History route
+Route::get('/history', [FrontendController::class, 'history'])->name('loan.history');
 
 /*** Withdraw form route ***/ 
 Route::get('/withdraw', [FrontendController::class, 'withdrawForm'])

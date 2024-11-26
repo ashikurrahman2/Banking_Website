@@ -80,8 +80,8 @@
                                                         @method('PATCH')
                                                         <button class="btn btn-danger btn-sm" type="submit">Reject</button>
                                                     </form>
-                                                @else
-                                                    <span class="text-muted">Actions Disabled</span>
+                                                {{-- @else
+                                                    <span class="text-muted">Actions Disabled</span> --}}
                                                 @endif
                                             </td>
                                         </tr>
