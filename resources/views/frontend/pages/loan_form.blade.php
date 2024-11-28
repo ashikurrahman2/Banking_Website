@@ -126,7 +126,7 @@
 
             <div class="form-group">
                 <label for="guarantor_father_name">Father's Name (পিতার নাম): <span class="text-danger">*</span></label>
-                <input type="text" id="guarantor_father_name" name="guarantor_father_name" class="form-control" required>
+                <input type="text" id="guarantor_father_name" name="guarantor_father_name" class="form-control" value="{{ old('guarantor_father_name') }}" required>
             </div>
 
             <div class="form-group">
@@ -153,4 +153,38 @@
         </form>
     </div>
 </section>
+
+{{-- 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const loanAmountInput = document.getElementById('loan_amount');
+        const repaymentPeriodInput = document.getElementById('repayment_period');
+        const resultContainer = document.createElement('div');
+        resultContainer.style.marginTop = '10px';
+        resultContainer.style.fontWeight = 'bold';
+        resultContainer.id = 'result';
+        repaymentPeriodInput.parentElement.appendChild(resultContainer);
+
+        loanAmountInput.addEventListener('input', calculateLoanRepayment);
+        repaymentPeriodInput.addEventListener('input', calculateLoanRepayment);
+
+        function calculateLoanRepayment() {
+            const loanAmount = parseFloat(loanAmountInput.value) || 0;
+            const repaymentDate = new Date(repaymentPeriodInput.value);
+            const currentDate = new Date();
+
+            // Calculate the number of years between the current date and repayment date
+            const years = (repaymentDate - currentDate) / (1000 * 60 * 60 * 24 * 365.25);
+
+            if (years > 0 && loanAmount > 0) {
+                const interestRate = 0.005; // 0.5% annual interest rate
+                const totalAmount = loanAmount * Math.pow(1 + interestRate, years);
+                resultContainer.textContent = `Total Repayment Amount (মোট ঋণ পরিশোধের পরিমাণ): ৳${totalAmount.toFixed(2)}`;
+            } else {
+                resultContainer.textContent = '';
+            }
+        }
+    });
+</script> --}}
+
 @endsection

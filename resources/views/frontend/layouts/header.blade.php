@@ -15,12 +15,12 @@
                     </div>
                 @endauth
                 <div id="cssmenu">
-                    <ul>++
+                    <ul>
                         <li>
                             <a href="/">Home</a>
                         </li>
                         <li><a href="about.html">About us </a></li>
-                        <li><a href="services.html">Service</a>
+                        {{-- <li><a href="services.html">Service</a>
                             <ul>
                                 <li><a href="services-image.html">Services Image</a></li>
                                 <li><a href="business-loan.html">Business Loan</a></li>
@@ -28,8 +28,8 @@
                                 <li><a href="car-loan.html">Car Loan</a></li>
                                 <li><a href="home-loan.html">Home Loan</a></li>
                             </ul>
-                        </li>
-                        <li><a href="#">Pages</a>
+                        </li> --}}
+                        {{-- <li><a href="#">Pages</a>
                             <ul>
                                 <li> <a href="calculator.html">Calculator</a></li>
                                 <li> <a href="gallery.html">Gallery</a></li>
@@ -40,9 +40,9 @@
                                 <li><a href="apply-now.html">Apply Now</a></li>
                                 
                             </ul>
-                        </li>
+                        </li> --}}
                     
-                        <li><a href="contact.html">Contact us</a></li>
+                        <li><a href="#">Contact us</a></li>
                         <li><a href="/register">Register</a></li>
                         <li>
                             @if(Auth::check())

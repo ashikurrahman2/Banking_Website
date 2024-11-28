@@ -80,7 +80,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: #f8f9fa; /* Light background */
+             background: #f22121; 
+            background: 
             box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             display: flex;
@@ -90,7 +91,7 @@
         }
     
         .nav-link {
-            color: black;
+            color: white;
             font-size: 14px;
             font-weight: 500;
             text-align: center;
@@ -107,12 +108,12 @@
     
         .nav-link:hover {
             /* color: #007bff; Hover color */
-            color: #21a77c; 
+            color: yellowgreen; 
         }
     
         .nav-link.active {
             /* color: #007bff; Active state color */
-            color: #21a77c;
+            color: #ffff;
         }
     
         a {

@@ -202,7 +202,7 @@
                 <div class="col-md-6 text-center">
                     <div class="single-third-about-us topimage">
                         <div class="about-thumb">
-                            <img src="{{ asset('/') }}frontend/asset/img/portfolio-1.jpg" alt="">
+                            {{-- <img src="{{ asset('/') }}frontend/asset/img/portfolio-1.jpg" alt=""> --}}
                         </div>
                         <h2>Why Choose Us</h2>
                         <p>If уоu’rе іn thе mаrkеt for a lоаn, wе encourage уоu to gіvе uѕ a саll оr come іn fоr a сhаt. If уоu prefer tо соmmunісаtе еlесtrоnісаllу, рlеаѕе fіll оut thіѕ соntасt fоrm, and a bank rерrеѕеntаtіvе wіll gеt іn tоuсh wіth уоu shortly. At Lоаnрluѕ, wе undеrѕtаnd thе lосаl аnd іntеrnаtіоnаl mаrkеt аnd wе саrе аbоut оur сuѕtоmеrѕ.</p>
@@ -213,7 +213,7 @@
                         <h2 style="margin-top: 40px;">Our loan Advisor specialist</h2>
                         <p>We understand that we аrе ореrаtіng in a dynamic environment аnd hаvе evolved our strategy tо maximize the opportunity іn аn іnсrеаѕіnglу digital global world. Wіth our full wоrldwіdе network, wе are еvоlvіng tо mееt thе changing nееdѕ оf millions of сuѕtоmеrѕ асrоѕѕ different borders.</p>
                         <div class="about-thumb">
-                            <img src="{{ asset('/') }}frontend/asset/img/portfolio-2.jpg" alt="">
+                            {{-- <img src="{{ asset('/') }}frontend/asset/img/portfolio-2.jpg" alt=""> --}}
                         </div>
                     </div>
                 </div>
@@ -235,7 +235,9 @@
             <div class="owl-carousel third-services-slider">
                 <div class="single-services-image">
                     <div class="services-thumb">
-                        <a href="single-services.html"><img src="{{ asset('/') }}frontend/asset/img/portfolio-11.jpg" alt=""></a>
+                        <a href="single-services.html">
+                            <img src="{{ asset('/') }}frontend/asset/img/portfolio-11.jpg" alt="">
+                        </a>
                     </div>
                     <div class="services-img-content">
                         <a href="single-services.html"><h4>Personal Loan</h4></a>
@@ -245,7 +247,9 @@
                 </div>
                 <div class="single-services-image">
                     <div class="services-thumb">
-                        <a href="single-services.html"><img src="{{ asset('/') }}frontend/asset/img/portfolio-10.jpg" alt=""></a>
+                        <a href="single-services.html">
+                            <img src="{{ asset('/') }}frontend/asset/img/portfolio-10.jpg" alt="">
+                        </a>
                     </div>
                     <div class="services-img-content">
                         <a href="single-services.html"><h4>Car Loan</h4></a>
@@ -255,7 +259,9 @@
                 </div>
                 <div class="single-services-image">
                     <div class="services-thumb">
-                        <a href="single-services.html"><img src="{{ asset('/') }}frontend/asset/img/portfolio-3.jpg" alt=""></a>
+                        <a href="single-services.html">
+                            <img src="{{ asset('/') }}frontend/asset/img/portfolio-3.jpg" alt="">
+                        </a>
                     </div>
                     <div class="services-img-content">
                         <a href="single-services.html"><h4>Business Loan</h4></a>
@@ -301,7 +307,7 @@
                     <div class="second-single-loan-process">
                         <h4>Provide Document</h4>
                         <div class="icon">
-                            <img src="asset/img/dollar.png" alt="">
+                            <img src="{{ asset('/') }}frontend/asset/img/dollar.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -309,7 +315,7 @@
                     <div class="second-single-loan-process">
                         <h4>Approved Loan</h4>
                         <div class="icon">
-                            <img src="asset/img/handshake.png" alt="">
+                            <img src="{{ asset('/') }}frontend/asset/img/handshake.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -317,7 +323,7 @@
                     <div class="second-single-loan-process">
                         <h4>Get your Money</h4>
                         <div class="icon">
-                            <img src="asset/img/get-money.png" alt="">
+                            <img src="{{ asset('/') }}frontend/asset/img/get-money.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -398,7 +404,7 @@
             <div class="third-testimonial-slider owl-carousel">
                 <div class="single-testimonial-third">
                     <div class="testimonial-img">
-                        <img src="asset/img/testimonial.jpg" alt="">
+                        <img src="{{ asset('/') }}frontend/asset/img/testimonial.jpg" alt="">
                     </div>
                     <div class="content">
                         <div class="title">
@@ -410,7 +416,7 @@
                 </div>
                 <div class="single-testimonial-third">
                     <div class="testimonial-img">
-                        <img src="asset/img/testimonial-2.jpg" alt="">
+                        <img src="{{ asset('/') }}frontend/asset/img/testimonial-2.jpg" alt="">
                     </div>
                     <div class="content">
                         <div class="title">
@@ -439,7 +445,7 @@
                 <div class="col-md-4 col-lg-4">
                     <div class="single-article">
                         <div class="article-img">
-                            <a href="#"><img src="asset/img/articale-1.jpg" alt=""></a>
+                            <a href="#"><img src="{{ asset('/') }}frontend/asset/img/articale-1.jpg" alt=""></a>
                             <div class="article-date">
                                 <p>Feb 20, 2018</p>
                             </div>
@@ -450,7 +456,7 @@
                 <div class="col-md-4 col-lg-4">
                     <div class="single-article">
                         <div class="article-img">
-                            <a href="#"><img src="asset/img/articale-2.jpg" alt=""></a>
+                            <a href="#"><img src="{{ asset('/') }}frontend/asset/img/articale-2.jpg" alt=""></a>
                             <div class="article-date">
                                 <p>Feb 20, 2018</p>
                             </div>
@@ -462,7 +468,7 @@
                 <div class="col-md-4 col-lg-4">
                     <div class="single-article">
                         <div class="article-img">
-                            <a href="#"><img src="asset/img/articale-3.jpg" alt=""></a>
+                            <a href="#"><img src="{{ asset('/') }}frontend/asset/img/articale-3.jpg" alt=""></a>
                             <div class="article-date">
                                 <p>Feb 20, 2018</p>
                             </div>
@@ -480,19 +486,19 @@
         <div class="container">
             <div class="brand-slider owl-carousel">
                 <div class="single-brand">
-                    <img src="asset/img/brand-1.png" alt="">
+                    <img src="{{ asset('/') }}frontend/asset/img/brand-1.png" alt="">
                 </div>
                 <div class="single-brand">
-                    <img src="asset/img/brand-2.png" alt="">
+                    <img src="{{ asset('/') }}frontend/asset/img/brand-2.png" alt="">
                 </div>
                 <div class="single-brand">
-                    <img src="asset/img/brand-3.png" alt="">
+                    <img src="{{ asset('/') }}frontend/asset/img/brand-3.png" alt="">
                 </div>
                 <div class="single-brand">
-                    <img src="asset/img/brand-4.png" alt="">
+                    <img src="{{ asset('/') }}frontend/asset/img/brand-4.png" alt="">
                 </div>
                 <div class="single-brand">
-                    <img src="asset/img/brand-5.png" alt="">
+                    <img src="{{ asset('/') }}frontend/asset/img/brand-5.png" alt="">
                 </div>
             </div>
         </div>

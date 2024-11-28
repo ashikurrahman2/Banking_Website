@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('title', 'Service')
 
@@ -108,4 +108,4 @@
         </div>
     </section>
     <!-- end of loan process two -->
-@endsection
+@endsection --}}

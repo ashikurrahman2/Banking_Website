@@ -6,7 +6,7 @@
         <div class="m-header">
             <a href="{{ route('admin.home') }}" class="b-brand text-primary">
                 <!-- Change your logo from here -->
-                 <img src="{{ url($setting->logo) }}" alt="logo image" class="logo-lg" style="max-width: 150px; max-height: 50px;"> 
+                 <img src="{{ url($setting->logo) }}" alt="logo image" class="logo-lg" style="max-width: 150px; max-height: 50px;">
                 <span class="badge bg-primary rounded-pill ms-2 theme-version">Bank Loan Policy</span>
             </a>
         </div>

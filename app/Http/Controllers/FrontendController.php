@@ -54,43 +54,7 @@ class FrontendController extends Controller
 
  }
  
-// Form submission request
-// public function applyLoan(Request $request)
-// {
-//     $validated = $request->validate([
-//         'loan_type' => 'required',
-//         'F_name' => 'required|string|max:255',
-//         'M_name' => 'required|string|max:255',
-//         'spouse_name' => 'nullable|string|max:255',
-//         'd_birth' => 'required|date',
-//         'gender' => 'required|string|max:255',
-//         'pass_num' => 'required|string|max:255',
-//         'country' => 'required|string|max:255',
-//         'phone' => 'required|string|max:255',
-//         'social_phone' => 'nullable|string|max:255',
-//         'permanent_address' => 'required|string|max:255',
-//         'district' => 'required|string|max:255',
-//         'police_station' => 'required|string|max:255',
-//         'email' => 'required|email|max:255',
-//         'account_no' => 'required|string|max:255',
-//         'branch' => 'required|string|max:255',
-//         'account_holder' => 'required|string|max:255',
-//         'loan_amount' => 'required|numeric|min:1000',
-//         'repayment_period' => 'required|string',
-//         'photo' => 'required|image|max:2048',
-//         'signature' => 'required|image|max:2048',
-//         'guarantor_name' => 'required|string|max:255',
-//         'guarantor_father_name' => 'required|string|max:255',
-//         'guarantor_mother_name' => 'required|string|max:255',
-//         'guarantor_nid' => 'required|string|max:255',
-//         'guarantor_thana' => 'required|string|max:255',
-//         'guarantor_zilla' => 'required|string|max:255',
-//     ]);
 
-//     LoanApplication::create(array_merge($validated, ['user_id' => Auth::user()->id]));
-
-//     return back()->with('success', 'Your loan application has been submitted and is pending approval!');
-//    }
 
 public function applyLoan(Request $request)
 {
@@ -124,6 +88,22 @@ public function applyLoan(Request $request)
         'guarantor_thana' => 'required|string|max:255',
         'guarantor_zilla' => 'required|string|max:255',
     ]);
+
+        // Calculate the loan details
+        // $loanAmount = $validated['loan_amount'];
+        // $repaymentDate = new \DateTime($validated['repayment_period']);
+        // $today = new \DateTime();
+    
+        // দিন গণনা
+        // $interval = $today->diff($repaymentDate);
+        // $days = $interval->days;
+    
+        // ইন্টারেস্ট হিসাব (০.৫%/দিন)
+        // $interestRate = 0.005; // ০.৫%
+        // $totalInterest = $loanAmount * $interestRate * $days;
+    
+        // মোট লোন এমাউন্ট
+        // $totalLoanAmount = $loanAmount + $totalInterest;
 
 
     // Handle the file uploads
@@ -172,11 +152,22 @@ public function applyLoan(Request $request)
        return redirect()->route('withdraw.success')->with('success', 'Withdrawal requests are not permitted at this stage');
    }
 
-   public function history(){
-    $user = Auth::user(); 
-    $loans = LoanApplication::where('user_id', $user->id)->get(); 
-    return view('frontend.pages.loan_history', compact('user', 'loans')); // সঠিক ভিউ পাথ
-
+   public function history()
+   {
+       if (!Auth::check()) {
+           return redirect()->route('login')->with('error', 'You must be logged in to access this page.');
+       }
+   
+       $user = Auth::user(); 
+       
+       // সমস্ত লোন ডাটা রিট্রিভ করা (স্ট্যাটাস কিছু না ফিল্টার করা)
+       $loans = LoanApplication::where('user_id', $user->id)
+                   ->get(); // সব লোন ডাটা আনা
+   
+       return view('frontend.pages.loan_history', compact('user', 'loans'));
    }
+   
+   
+   
 
 }

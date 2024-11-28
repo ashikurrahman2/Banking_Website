@@ -25,12 +25,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 /*** Website page route ***/
 Route::prefix('admin')->name('admin.')->middleware(['auth', IsAdmin::class])->group(function() {
-    // Route::resource('abouts', AboutController::class)->except(['show', 'create']);
+    Route::resource('abouts', AboutController::class)->except(['show', 'create']);
     Route::resource('statement', StatementController::class);
     Route::resource('loan', AdminLoanController::class);
     Route::patch('loan-applications/{id}/approve', [AdminLoanController::class, 'approve'])->name('loan.approve');
     Route::patch('loan-applications/{id}/reject', [AdminLoanController::class, 'reject'])->name('loan.reject');
     Route::resource('slider', SliderController::class);
+
+
+    
     
 
    

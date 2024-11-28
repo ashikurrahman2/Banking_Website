@@ -98,17 +98,34 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
+       
         $request->validate([
             'slide_title' => 'required|string|max:255',
-            'slide_subtitle' => 'required|string|max:255',
-            'slide_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'slide_subtitle' => 'nullable|string|max:255',
+            'slide_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        
-        // Slider::updateSlide($request);
-        // $this->toastr->success('Slider info updated successfully!');
-        // return back();
-        Slider::updateSlide($request, $slider);
-        $this->toastr->success('slider info updated successfully!');
+    
+        // Updating slider details
+        $slider->slide_title = $request->slide_title;
+        $slider->slide_subtitle = $request->slide_subtitle;
+    
+        if ($request->hasFile('slide_image')) {
+            // Delete old image if exists
+            if ($slider->slide_image && file_exists(public_path($slider->slide_image))) {
+                unlink(public_path($slider->slide_image));
+            }
+    
+            // Upload and store new image
+            $image = $request->file('slide_image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $imagePath = 'uploads/sliders/';
+            $image->move(public_path($imagePath), $imageName);
+            $slider->slide_image = $imagePath . $imageName;
+        }
+    
+        $slider->save();
+    
+        $this->toastr->success('Slider updated successfully!');
         return back();
     }
 
