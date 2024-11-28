@@ -19,7 +19,7 @@
                         <li>
                             <a href="/">Home</a>
                         </li>
-                        <li><a href="about.html">About us </a></li>
+                        <li><a href="#">About us </a></li>
                         {{-- <li><a href="services.html">Service</a>
                             <ul>
                                 <li><a href="services-image.html">Services Image</a></li>
