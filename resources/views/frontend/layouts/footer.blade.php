@@ -57,7 +57,7 @@
                             <ul>
                                 <li>
                                     <div class="icon">
-                                        <img src="asset/img/map-pin.png" alt="">
+                                        <img src="{{ asset('/') }}frontend/asset/img/map-pin.png" alt="">
                                     </div>
                                     <div class="content">
                                         <p>Loanplus 201, San Francis, United States.</p>
@@ -65,7 +65,7 @@
                                 </li>
                                 <li>
                                     <div class="icon">
-                                        <img src="asset/img/envalope-2.png" alt="">
+                                        <img src="{{ asset('/') }}frontend/asset/img/envalope-2.png" alt="">
                                     </div>
                                     <div class="content">
                                         <p>mail@loanplus.com
@@ -74,7 +74,7 @@
                                 </li>
                                 <li>
                                     <div class="icon">
-                                        <img src="asset/img/call.png" alt="">
+                                        <img src="{{ asset('/') }}frontend/asset/img/call.png" alt="">
                                     </div>
                                     <div class="content">
                                         <p>+ 44-567-000-0124
@@ -92,9 +92,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-left">
+                  
                     <div class="copyright-text">
-                        <p><i class="fa fa-copyright"></i> 2018 Lender. All Rights Reserved</p>
+                        <p><i class="fa fa-copyright"></i> {{ date('Y') }} Lender. All Rights Reserved</p>
                     </div>
+                    
                 </div>
                 {{-- <div class="col-md-6 text-right">
                     <ul class="footer-nav">
