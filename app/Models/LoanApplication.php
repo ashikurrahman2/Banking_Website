@@ -11,6 +11,7 @@ class LoanApplication extends Model
    // Mass assignable attributes
    protected $fillable = [
     'loan_type', 
+    'name', 
     'F_name', 
     'M_name', 
     'spouse_name', 

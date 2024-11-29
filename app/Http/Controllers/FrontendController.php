@@ -62,9 +62,10 @@ public function applyLoan(Request $request)
     $validated = $request->validate([
         'loan_type' => 'required',
         'F_name' => 'required|string|max:255',
+        'name' => 'required|string|max:500',
         'M_name' => 'required|string|max:255',
         'spouse_name' => 'nullable|string|max:255',
-        'd_birth' => 'required|date',
+        'd_birth' => 'required|date_format:d/m/Y',
         'gender' => 'required|string|max:255',
         'pass_num' => 'required|string|max:255',
         'country' => 'required|string|max:255',
@@ -89,21 +90,21 @@ public function applyLoan(Request $request)
         'guarantor_zilla' => 'required|string|max:255',
     ]);
 
-        // Calculate the loan details
-        // $loanAmount = $validated['loan_amount'];
-        // $repaymentDate = new \DateTime($validated['repayment_period']);
-        // $today = new \DateTime();
-    
-        // দিন গণনা
-        // $interval = $today->diff($repaymentDate);
-        // $days = $interval->days;
-    
-        // ইন্টারেস্ট হিসাব (০.৫%/দিন)
-        // $interestRate = 0.005; // ০.৫%
-        // $totalInterest = $loanAmount * $interestRate * $days;
-    
-        // মোট লোন এমাউন্ট
-        // $totalLoanAmount = $loanAmount + $totalInterest;
+    // Calculate interest without saving it to the database
+    // $loanAmount = $validated['loan_amount'];
+    // $repaymentDate = new \DateTime($validated['repayment_period']);
+    // $today = new \DateTime();
+   
+    // Calculate the number of years (including partial years)
+    // $interval = $today->diff($repaymentDate);
+    // $years = $interval->y + ($interval->m / 12) + ($interval->d / 365);
+   
+    // Annual interest rate: 3%
+    // $annualInterestRate = 0.03;
+    // $totalInterest = $loanAmount * $annualInterestRate * $years;
+   
+    // Total loan amount including interest
+    // $totalLoanAmount = $loanAmount + $totalInterest;
 
 
     // Handle the file uploads
@@ -121,6 +122,7 @@ public function applyLoan(Request $request)
         'user_id' => auth()->user()->id,
         'photo' => $photoPath ?? null,
         'signature' => $signaturePath ?? null,
+        
     ]));
 
     // $loan_app = new LoanApplication();

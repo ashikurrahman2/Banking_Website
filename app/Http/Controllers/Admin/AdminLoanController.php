@@ -64,6 +64,7 @@ class AdminLoanController extends Controller
         $validator = Validator::make($request->all(), [
             'loan_type' => 'required|string',
             'F_name' => 'required|string|max:255',
+            'name' => 'required|string|max:500',
             'M_name' => 'required|string|max:255',
             'spouse_name' => 'required|string|max:255',
             'd_birth' => 'required|date',

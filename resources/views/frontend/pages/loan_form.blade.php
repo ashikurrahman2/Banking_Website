@@ -12,6 +12,11 @@
             @csrf
             <input type="hidden" name="loan_type" value="{{ $loanType }}">
             <div class="form-group">
+                <label for="name"> Name (নাম): <span class="text-danger">*</span></label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
                 <label for="F_name">Father's name (পিতার নাম): <span class="text-danger">*</span></label>
                 <input type="text" id="F_name" name="F_name" class="form-control" required>
             </div>
@@ -28,8 +33,17 @@
 
             <div class="form-group">
                 <label for="d_birth"> Date Of Birth (জন্ম তারিখ): <span class="text-danger">*</span></label>
-                <input type="date" id="d_birth" name="d_birth" class="form-control" required>
+                <input type="text" id="d_birth" name="d_birth" class="form-control" placeholder="Date/Month/year" required>
             </div>
+
+            {{-- <div class="form-group">
+                <label for="d_birth">Date Of Birth (জন্ম তারিখ): <span class="text-danger">*</span></label>
+                <input  type="text" id="d_birth" name="d_birth" class="form-control" placeholder="Date/Month/year" 
+                    pattern="\d{2} \d{2} \d{4}" 
+                    title="Please enter the date in dd mm yyyy format" 
+                    required
+                >
+            </div> --}}
 
             {{-- <div class="form-group">
                 <label for="gender">Gender (লিঙ্গ): <span class="text-danger">*</span></label>
@@ -261,8 +275,24 @@
 
             <div class="form-group">
                 <label for="repayment_period">Loan Repayment Period (ঋণ পরিশোধের মেয়াদ): <span class="text-danger">*</span></label>
-                <input type="date" id="repayment_period" name="repayment_period" class="form-control" required>
+                <input type="text" id="repayment_period" name="repayment_period" class="form-control" placeholder="Date/Month/Year" required>
             </div>
+
+            {{-- <div class="form-group">
+                <label for="repayment_period">Loan Repayment Period (ঋণ পরিশোধের মেয়াদ): <span class="text-danger">*</span></label>
+                <input  type="text" id="repayment_period" name="repayment_period" class="form-control" placeholder="Date/Month/year" 
+                    pattern="\d{2} \d{2} \d{4}" 
+                    title="Please enter the date in dd mm yyyy format" 
+                    required
+                > --}}
+            </div>
+            
+
+            <!-- সুদ এবং মোট ঋণের পরিমাণ প্রদর্শন করার জন্য -->
+<div class="form-group">
+    <p id="total_interest">Interest: ৳0.00</p>
+    <p id="total_loan_amount">Total Loan Amount: ৳0.00</p>
+</div>
 
             <div class="form-group">
                 <label for="photo">Photo (ছবি):<span class="text-danger">*</span></label>
@@ -407,37 +437,36 @@
     </div>
 </section>
 
-{{-- 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const loanAmountInput = document.getElementById('loan_amount');
-        const repaymentPeriodInput = document.getElementById('repayment_period');
-        const resultContainer = document.createElement('div');
-        resultContainer.style.marginTop = '10px';
-        resultContainer.style.fontWeight = 'bold';
-        resultContainer.id = 'result';
-        repaymentPeriodInput.parentElement.appendChild(resultContainer);
+    // সুদের হার (৩%)
+    const annualInterestRate = 0.03;
 
-        loanAmountInput.addEventListener('input', calculateLoanRepayment);
-        repaymentPeriodInput.addEventListener('input', calculateLoanRepayment);
+    
+    document.getElementById('loan_amount').addEventListener('input', calculateLoan);
+    document.getElementById('repayment_period').addEventListener('change', calculateLoan);
 
-        function calculateLoanRepayment() {
-            const loanAmount = parseFloat(loanAmountInput.value) || 0;
-            const repaymentDate = new Date(repaymentPeriodInput.value);
-            const currentDate = new Date();
+    function calculateLoan() {
+        const loanAmount = parseFloat(document.getElementById('loan_amount').value);
+        const repaymentDate = new Date(document.getElementById('repayment_period').value);
+        const today = new Date();
 
-            // Calculate the number of years between the current date and repayment date
-            const years = (repaymentDate - currentDate) / (1000 * 60 * 60 * 24 * 365.25);
-
-            if (years > 0 && loanAmount > 0) {
-                const interestRate = 0.005; // 0.5% annual interest rate
-                const totalAmount = loanAmount * Math.pow(1 + interestRate, years);
-                resultContainer.textContent = `Total Repayment Amount (মোট ঋণ পরিশোধের পরিমাণ): ৳${totalAmount.toFixed(2)}`;
-            } else {
-                resultContainer.textContent = '';
-            }
+        
+        if (isNaN(loanAmount) || !repaymentDate) {
+            return;
         }
-    });
-</script> --}}
+
+        const years = (repaymentDate - today) / (1000 * 60 * 60 * 24 * 365.25);
+
+        // Intetest count
+        const totalInterest = loanAmount * annualInterestRate * years;
+
+        // Total Interest
+        const totalLoanAmount = loanAmount + totalInterest;
+
+        // Interest and total interest Showing
+        document.getElementById('total_interest').textContent = `Interest: ৳${totalInterest.toFixed(2)}`;
+        document.getElementById('total_loan_amount').textContent = `Total Loan Amount: ৳${totalLoanAmount.toFixed(2)}`;
+    }
+</script>
 
 @endsection

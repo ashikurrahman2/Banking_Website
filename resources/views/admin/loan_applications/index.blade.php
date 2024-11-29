@@ -33,6 +33,7 @@
                                             <th>ID</th>
                                             <th>Photo</th>
                                             <th>Name</th>
+                                            <th>Father Name</th>
                                             <th>Phone Number</th>
                                             <th>Loan Type</th>
                                             <th>Amount</th>
@@ -52,6 +53,8 @@
                                                     <span>No Photo</span>
                                                 @endif
                                             </td>
+
+                                            <td>{{ $application->name }}</td>
 
                                             <td>{{ $application->F_name }}</td>
 
