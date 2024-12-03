@@ -69,8 +69,8 @@
 
   
         </style>
-      
-    {{-- <section class="block-features">
+{{--       
+    <section class="block-features">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4 col-xl-2 col-sm-6 nopadding">

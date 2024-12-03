@@ -41,6 +41,7 @@ class LoginController extends Controller
         $this->middleware('auth')->only('logout');
     }
     
+    
     public function login(Request $request , ToastrInterface $toastr){
         $request->validate([
             'email' =>'required|email',
@@ -53,7 +54,7 @@ class LoginController extends Controller
                 return redirect()->route('admin.home');
                 }else{
                     $toastr->success('User loggedin Successfuly !');
-                        return redirect()->route('home');
+                        return redirect()->route('index');
                     }
             }else{
                     return back()->withErrors(['email'=>'Invalid email or password']);

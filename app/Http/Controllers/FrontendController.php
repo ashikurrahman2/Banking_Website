@@ -7,12 +7,18 @@ use App\Models\User;
 use App\Models\Slider;
 // use App\Models\setting;
 use Illuminate\Http\Request;
+use Flasher\Toastr\Prime\ToastrInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
 {
+    protected $toastr;
 
+    public function __construct(ToastrInterface $toastr)
+    {
+        $this->toastr = $toastr;
+    }
 
     // View main page 
     public function index()
@@ -33,11 +39,11 @@ class FrontendController extends Controller
 {
     // Set loan type according information
     $loanDetails = [
-        'personal' => ['title' => 'Personal Loan', 'rate' => '6.68%'],
-        'home' => ['title' => 'Home Loan', 'rate' => '6.68%'],
-        'car' => ['title' => 'Car Loan', 'rate' => '5.68%'],
-        'business' => ['title' => 'Business Loan', 'rate' => '7.56%'],
-        'education' => ['title' => 'Education Loan', 'rate' => '8.56%'],
+        'personal' => ['title' => 'Personal Loan', 'rate' => '3%'],
+        'home' => ['title' => 'Home Loan', 'rate' => '3%'],
+        'car' => ['title' => 'Car Loan', 'rate' => '3%'],
+        'business' => ['title' => 'Business Loan', 'rate' => '3%'],
+        'education' => ['title' => 'Education Loan', 'rate' => '3%'],
    
     ];
 
@@ -90,21 +96,7 @@ public function applyLoan(Request $request)
         'guarantor_zilla' => 'required|string|max:255',
     ]);
 
-    // Calculate interest without saving it to the database
-    // $loanAmount = $validated['loan_amount'];
-    // $repaymentDate = new \DateTime($validated['repayment_period']);
-    // $today = new \DateTime();
-   
-    // Calculate the number of years (including partial years)
-    // $interval = $today->diff($repaymentDate);
-    // $years = $interval->y + ($interval->m / 12) + ($interval->d / 365);
-   
-    // Annual interest rate: 3%
-    // $annualInterestRate = 0.03;
-    // $totalInterest = $loanAmount * $annualInterestRate * $years;
-   
-    // Total loan amount including interest
-    // $totalLoanAmount = $loanAmount + $totalInterest;
+    
 
 
     // Handle the file uploads
@@ -131,7 +123,9 @@ public function applyLoan(Request $request)
     // $loan_app->save();
 
     // Redirect back with a success message
-    return back()->with('success', 'Your loan application has been submitted and is pending approval!');
+    $this->toastr->success('Your loan application has been submitted and is pending approval!');
+    return back();
+    // return back()->with('success', 'Your loan application has been submitted and is pending approval!');
 }
 
 

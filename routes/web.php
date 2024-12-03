@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 
 require __DIR__ . '/admin.php';
+
 Auth::routes();
 
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-// ->middleware(UserMiddleware::class);
+
 /*** Main page route ***/ 
 Route::get('/', [FrontendController:: class, 'index'])->name('index');
 /*** Loan apply route ***/ 

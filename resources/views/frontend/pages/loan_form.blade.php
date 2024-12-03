@@ -289,10 +289,11 @@
             
 
             <!-- সুদ এবং মোট ঋণের পরিমাণ প্রদর্শন করার জন্য -->
-<div class="form-group">
-    <p id="total_interest">Interest: ৳0.00</p>
-    <p id="total_loan_amount">Total Loan Amount: ৳0.00</p>
-</div>
+            <div class="form-group">
+                <p id="total_interest">Interest: ৳0.00</p>
+                <p id="total_loan_amount">Total Loan Amount: ৳0.00</p>
+            </div>
+            
 
             <div class="form-group">
                 <label for="photo">Photo (ছবি):<span class="text-danger">*</span></label>
@@ -438,35 +439,28 @@
 </section>
 
 <script>
-    // সুদের হার (৩%)
-    const annualInterestRate = 0.03;
-
-    
-    document.getElementById('loan_amount').addEventListener('input', calculateLoan);
-    document.getElementById('repayment_period').addEventListener('change', calculateLoan);
-
+    // Function to calculate interest and total loan amount
     function calculateLoan() {
-        const loanAmount = parseFloat(document.getElementById('loan_amount').value);
-        const repaymentDate = new Date(document.getElementById('repayment_period').value);
-        const today = new Date();
-
+        const loanAmountInput = document.getElementById('loan_amount');
+        const repaymentPeriodInput = document.getElementById('repayment_period');
+        const interestElement = document.getElementById('total_interest');
+        const totalLoanAmountElement = document.getElementById('total_loan_amount');
         
-        if (isNaN(loanAmount) || !repaymentDate) {
-            return;
-        }
+        const loanAmount = parseFloat(loanAmountInput.value) || 0;
+        const interestRate = 3 / 100; // 3% interest rate
 
-        const years = (repaymentDate - today) / (1000 * 60 * 60 * 24 * 365.25);
+        // Calculate interest and total loan amount
+        const interest = loanAmount * interestRate;
+        const totalLoanAmount = loanAmount + interest;
 
-        // Intetest count
-        const totalInterest = loanAmount * annualInterestRate * years;
-
-        // Total Interest
-        const totalLoanAmount = loanAmount + totalInterest;
-
-        // Interest and total interest Showing
-        document.getElementById('total_interest').textContent = `Interest: ৳${totalInterest.toFixed(2)}`;
-        document.getElementById('total_loan_amount').textContent = `Total Loan Amount: ৳${totalLoanAmount.toFixed(2)}`;
+        // Update the display
+        interestElement.textContent = `Interest: ৳${interest.toFixed(2)}`;
+        totalLoanAmountElement.textContent = `Total Loan Amount: ৳${totalLoanAmount.toFixed(2)}`;
     }
+
+    // Attach event listeners to input fields
+    document.getElementById('loan_amount').addEventListener('input', calculateLoan);
+    document.getElementById('repayment_period').addEventListener('input', calculateLoan);
 </script>
 
 @endsection
