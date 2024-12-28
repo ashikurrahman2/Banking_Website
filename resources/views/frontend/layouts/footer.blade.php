@@ -9,12 +9,12 @@
                         </div>
                         <p>Over 24 years experience and knowledge Loanplus wе’rе hеrе to рrоvіdе уоu wіth fіnаnсіаl ѕоlutіоnѕ fоr аll уоur lеndіng needs. Whether you are lооkіng fоr any kind of loan, оur lending tеаm wіll explain lеndіng орtіоnѕ.</p>
                         <div class="footer-two-social">
-                            <a href="#" class="fa fa-facebook-f"></a>
-                            <a href="#" class="fa fa-twitter"></a>
-                            <a href="#" class="fa fa-linkedin"></a>
-                            <a href="#" class="fa fa-google-plus"></a>
-                            <a href="#" class="fa fa-pinterest"></a>
-                            <a href="#" class="fa fa-instagram"></a>
+                            <a href="{{ $setting->facebook }}" class="fa fa-facebook-f"></a>
+                            {{-- <a href="#" class="fa fa-twitter"></a> --}}
+                            <a href="{{ $setting->linkedin }}" class="fa fa-linkedin"></a>
+                            {{-- <a href="#" class="fa fa-google-plus"></a> --}}
+                            {{-- <a href="#" class="fa fa-pinterest"></a> --}}
+                            <a href="{{ $setting->instragram }}" class="fa fa-instagram"></a>
                         </div>
                     </div>
                 </div>
@@ -53,14 +53,15 @@
                         <div class="footer-title">
                             <h4>Contact us</h4>
                         </div>
-                        <div class="contact-widget">
+                        <div class="contact-widget">        
                             <ul>
                                 <li>
                                     <div class="icon">
                                         <img src="{{ asset('/') }}frontend/asset/img/map-pin.png" alt="">
                                     </div>
                                     <div class="content">
-                                        <p>Loanplus 201, San Francis, United States.</p>
+                                        {{-- <p>Loanplus 201, San Francis, United States.</p> --}}
+                                        <p>{{ $setting->address }}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -68,7 +69,7 @@
                                         <img src="{{ asset('/') }}frontend/asset/img/envalope-2.png" alt="">
                                     </div>
                                     <div class="content">
-                                        <p>mail@loanplus.com
+                                        <p>{{ $setting->main_email }},{{ $setting->support_email }}
                                             <span>reply within 2 Hours</span></p>
                                     </div>
                                 </li>
@@ -77,12 +78,14 @@
                                         <img src="{{ asset('/') }}frontend/asset/img/call.png" alt="">
                                     </div>
                                     <div class="content">
-                                        <p>+ 44-567-000-0124
+                                        <p>{{ $setting->phone_one }}
                                             <span>Call @ 8.30am to 5.00pm </span></p>
                                     </div>
                                 </li>
                             </ul>
+                            {{-- @endforeach --}}
                         </div>
+                     
                     </div>
                 </div>
             </div>
@@ -94,7 +97,7 @@
                 <div class="col-md-6 text-left">
                   
                     <div class="copyright-text">
-                        <p><i class="fa fa-copyright"></i> {{ date('Y') }} Lender. All Rights Reserved</p>
+                        <p>Copyright <i class="fa fa-copyright"></i> {{ date('Y') }} MBC Finance.</p>
                     </div>
                     
                 </div>

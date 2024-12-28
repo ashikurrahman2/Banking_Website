@@ -74,6 +74,7 @@ class AdminLoanController extends Controller
             'phone' => 'required|numeric',
             'social_phone' => 'required|numeric',
             'permanent_address' => 'required|string|max:255',
+            'bank_name' => 'required|string|max:500',
             'district' => 'required|string|max:255',
             'police_station' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -110,6 +111,7 @@ class AdminLoanController extends Controller
             'spouse_name' => $request->spouse_name,
             'd_birth' => $request->d_birth,
             'gender' => $request->gender,
+            'bank_name' => $request->bank_name,
             'pass_num' => $request->pass_num,
             'country' => $request->country,
             'phone' => $request->phone,
@@ -136,4 +138,6 @@ class AdminLoanController extends Controller
         // Redirect with success message
         return redirect()->back()->with('success', 'Loan application submitted successfully!');
     }
+
+
 }

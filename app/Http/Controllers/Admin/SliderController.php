@@ -98,8 +98,7 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
-       
-        $request->validate([
+            $request->validate([
             'slide_title' => 'required|string|max:255',
             'slide_subtitle' => 'nullable|string|max:255',
             'slide_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

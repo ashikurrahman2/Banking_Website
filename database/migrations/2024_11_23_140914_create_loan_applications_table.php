@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('F_name');
             $table->string('M_name');
             $table->string('spouse_name')->nullable();
-            $table->date('d_birth');
+            $table->string('d_birth');
             $table->string('gender');
             $table->string('pass_num');
             $table->string('country');

@@ -67,7 +67,7 @@
                         <span class="fa fa-phone"></span>
                     </div>
                     <div class="content">
-                        <p>+2 -450-000-0120</p>
+                        <p>{{ $setting->phone_one }}</p>
                     </div>
                 </div>
                 <div class="menu-info">
@@ -75,7 +75,7 @@
                         <span class="fa fa-envelope"></span>
                     </div>
                     <div class="content">
-                        <p>Info@loanplus.com</p>
+                        <p>{{ $setting->main_email }}</p>
                     </div>
                 </div>
                 <div class="menu-info-wrapper">

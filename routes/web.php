@@ -24,6 +24,13 @@ Route::get('/loan/{type}', [FrontendController::class, 'loanForm'])
 
 /*** Loan type form submission route ***/ 
 Route::post('/apply-loan', [FrontendController::class, 'applyLoan'])->name('loan.apply');
+
+/*** Loan success route ***/
+// Route::get('/loan-success', [FrontendController::class, 'loanSuccess'])->name('loan.success');
+
+/*** Loan type form submission route ***/ 
+// Route::post('/apply-loan', [FrontendController::class, 'applyLoan'])->name('loan.apply');
+
 // Logout Route
 Route::post('/logout', function () {
     Auth::logout();
