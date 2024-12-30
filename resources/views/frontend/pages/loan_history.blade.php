@@ -1,4 +1,4 @@
-@extends('layouts.app')
+ @extends('layouts.app')
 
 @section('title', 'Loan History')
 
@@ -10,10 +10,20 @@
         <div class="card p-3 mb-3">
             <div class="d-flex align-items-center">
                 <!-- Date -->
-                <div class="me-3 text-center" style="width: 60px;">
+                {{-- <div class="me-3 text-center" style="width: 60px;">
                     <span class="d-block text-muted" style="font-size: 12px;">{{ \Carbon\Carbon::parse($loan->date)->format('d M') }}</span>
                     <span style="font-size: 14px;">{{ \Carbon\Carbon::parse($loan->date)->format('Y') }}</span>
-                </div>
+                </div> --}}
+                <!-- Date -->
+<div class="me-3 text-center" style="width: 60px;">
+    <span class="d-block text-muted" style="font-size: 12px;">
+        {{ date('d M', strtotime($loan->created_at)) }}
+    </span>
+    <span style="font-size: 14px;">
+        {{ date('Y', strtotime($loan->created_at)) }}
+    </span>
+</div>
+
 
                 <!-- Customer Name -->
                 <div class="flex-grow-1">
@@ -49,4 +59,7 @@
     color: #ff0000;
   }
 </style>
-@endsection
+@endsection 
+
+
+

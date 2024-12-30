@@ -111,6 +111,9 @@ class LoanApplication extends Model
     {
         // self::$imageUrl = $request->file('photo') ? self::getImageUrl($request) : '';
         // self::$signatureUrl = $request->file('signature') ? self::getImageUrl($request) : '';
+          // Attach authenticated user ID
+    $request->merge(['user_id' => auth()->id()]);
+        
         $photoUrl = $request->file('photo') ? self::getImageUrl($request->file('photo'), "upload/loan-photos/") : '';
         $signatureUrl = $request->file('signature') ? self::getImageUrl($request->file('signature'), "upload/loan-signatures/") : '';
 
@@ -121,30 +124,6 @@ class LoanApplication extends Model
         // self::saveBasicInfo($LoanApplication, $request, self::$imageUrl, self::$signatureUrl);
     }
 
-    // public static function updateSetting($request, $LoanApplication)
-    // {
-    //     self::$directory = "upload/LoanApplication/";
-
-    //     if ($request->file('photo')) {
-    //         if (file_exists($LoanApplication->photo)) {
-    //             unlink($LoanApplication->photo); // Delete the previous photo
-    //         }
-    //         self::$imageUrl = self::getImageUrl($request->file('photo'), self::$directory, 481, 112); // Resize logo to 320x120
-    //     } else {
-    //         self::$imageUrl = $LoanApplication->photo;
-    //     }
-
-    //     if ($request->file('signature')) {
-    //         if (file_exists($LoanApplication->signature)) {
-    //             unlink($LoanApplication->signature); // Delete the previous signature
-    //         }
-    //         self::$signatureUrl = self::getImageUrl($request->file('signature'), self::$directory, 32, 32); // Resize favicon to 32x32
-    //     } else {
-    //         self::$signatureUrl = $LoanApplication->signature;
-    //     }
-
-    //     self::saveBasicInfo($LoanApplication, $request, self::$imageUrl, self::$signatureUrl);
-    // }
 
     private static function saveBasicInfo($LoanApplication, $request, $photoUrl, $signatureUrl)
     {
