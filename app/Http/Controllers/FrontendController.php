@@ -169,7 +169,7 @@ public function applyLoan(Request $request)
         'spouse_name' => 'nullable|string|max:255',
         'd_birth' => 'required|string',
         'gender' => 'required|string|max:255',
-        'pass_num' => 'required',
+        'pass_num' => 'string',
         'country' => 'required|string|max:255',
         'phone' => 'required|numeric',
         'social_phone' => 'nullable|numeric',

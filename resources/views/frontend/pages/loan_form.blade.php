@@ -37,6 +37,14 @@
 </div>
 
 <div class="form-group">
+    <label for="spouse_name">Spouse's Name (স্ত্রীর নাম): <span class="text-danger">*</span></label>
+    <input type="text" id="spouse_name" name="spouse_name" class="form-control" @error('spouse_name') is-invalid @enderror value="{{ old('spouse_name') }}" required>
+    @error('spouse_name')
+        <small class="text-danger">{{ $message }}</small>
+    @enderror
+</div>
+
+<div class="form-group">
     <label for="d_birth">Date Of Birth (জন্ম তারিখ): <span class="text-danger">*</span></label>
     <input type="text" id="d_birth" name="d_birth" class="form-control" value="{{ old('d_birth') }}" required>
     @error('d_birth')
@@ -71,10 +79,10 @@
 
             <div class="form-group">
                 <label for="pass_num">Passport number (পাসপোর্ট নম্বর):</label>
-                <input type="text" id="pass_num" name="pass_num" class="form-control" @error('pass_num') is-invalid @enderror  value="{{ old('pass_num') }}">
-                @error('pass_num')
+                <input type="text" id="pass_num" name="pass_num" class="form-control" >
+                {{-- @error('pass_num')
                 <span class="text-danger">{{ $message }}</span>
-                 @enderror
+                 @enderror --}}
             </div>
 
             <div class="form-group">
